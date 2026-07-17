@@ -11,7 +11,6 @@
       background: #0b1120;
       color: #e5e7eb;
     }
-
     .hero {
       min-height: 100vh;
       display: flex;
@@ -22,7 +21,6 @@
       padding: 40px 20px;
       background: radial-gradient(circle at top, #1d4ed8 0, #0b1120 55%);
     }
-
     .logo {
       font-weight: 700;
       font-size: 1.2rem;
@@ -31,12 +29,10 @@
       color: #93c5fd;
       margin-bottom: 16px;
     }
-
     h1 {
       font-size: clamp(2.4rem, 5vw, 3.4rem);
       margin: 0 0 12px;
     }
-
     .subtitle {
       max-width: 520px;
       margin: 0 auto 32px;
@@ -44,7 +40,13 @@
       font-size: 1.05rem;
       line-height: 1.6;
     }
-
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -61,18 +63,15 @@
       box-shadow: 0 18px 40px rgba(34, 197, 94, 0.35);
       transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
     }
-
     .download-btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 24px 50px rgba(34, 197, 94, 0.45);
       background: #16a34a;
     }
-
     .download-btn:active {
       transform: translateY(1px);
       box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
     }
-
     .download-icon {
       width: 20px;
       height: 20px;
@@ -83,10 +82,49 @@
       justify-content: center;
       background: rgba(255, 255, 255, 0.35);
     }
-
     .download-icon span {
       font-size: 14px;
       font-weight: 900;
+    }
+
+    /* Bouton "Shift sur navigateur" : même gabarit que le bouton de
+       téléchargement pour rester visuellement équivalent, mais dans la
+       teinte bleue de la marque pour bien le distinguer du vert (action
+       "télécharger un exécutable" vs "ouvrir dans le navigateur"). */
+    .browser-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      border: 2px solid #60a5fa;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      background: transparent;
+      color: #93c5fd;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease;
+    }
+    .browser-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(96, 165, 250, 0.12);
+      color: #dbeafe;
+      box-shadow: 0 18px 40px rgba(59, 130, 246, 0.25);
+    }
+    .browser-btn:active {
+      transform: translateY(1px);
+    }
+    .browser-icon {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .browser-icon svg {
+      width: 100%;
+      height: 100%;
     }
 
     .meta {
@@ -94,7 +132,6 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
-
     .footer {
       text-align: center;
       padding: 18px;
@@ -109,23 +146,34 @@
     <h1>Rejoins ton espace vocal en un clic.</h1>
     <p class="subtitle">
       Une appli simple pour discuter avec tes amis, créer des salons vocaux
-      et rester connecté. Télécharge le setup Windows pour commencer.
+      et rester connecté. Télécharge le setup Windows pour commencer, ou
+      utilise Shift directement depuis ton navigateur.
     </p>
+    <div class="actions">
+      <!-- IMPORTANT : change le href vers le chemin réel de ton .exe -->
+      <a class="download-btn" href="https://github.com/fornitelooping-create/UpdateShift/releases/download/v1.0.0/ShiftSetup.exe"
+   download>
+        <div class="download-icon">
+          <span>↓</span>
+        </div>
+        <span>Télécharger pour Windows (.exe)</span>
+      </a>
 
-    <!-- IMPORTANT : change le href vers le chemin réel de ton .exe -->
-    <a class="download-btn" href="https://github.com/fornitelooping-create/UpdateShift/releases/download/v1.0.0/ShiftSetup.exe"
- download>
-      <div class="download-icon">
-        <span>↓</span>
-      </div>
-      <span>Télécharger pour Windows (.exe)</span>
-    </a>
-
+      <a class="browser-btn" href="https://shift-account.vercel.app" target="_blank" rel="noopener noreferrer">
+        <span class="browser-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </span>
+        <span>Shift sur navigateur</span>
+      </a>
+    </div>
     <p class="meta">
       Compatible Windows 10 et plus · Taille ~ 80&nbsp;Mo
     </p>
   </section>
-
   <div class="footer">
     © 2026 Shift. Inspiré de Discord, construit par Looping.
   </div>
